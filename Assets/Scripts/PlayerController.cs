@@ -2,8 +2,7 @@ using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
-{
+public class PlayerController : MonoBehaviour {
     public GameObject course;
     public GameObject bounds;
     public float moveSpeed = 10f;
@@ -30,23 +29,23 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision) {
         Vector2 velocity = rb.linearVelocity;
-        
-        if(collision.gameObject.tag == "Platform") velocity.y = jumpForce;
-        if(collision.gameObject.tag == "Spring") velocity.y = springForce;
-        
+
+        if (collision.gameObject.tag == "Platform") velocity.y = jumpForce;
+        if (collision.gameObject.tag == "Spring") velocity.y = springForce;
+
         rb.linearVelocity = velocity;
     }
 
     void OnTriggerEnter2D(Collider2D collision) {
-        if(collision.gameObject.name == "RightBound") {
+        if (collision.gameObject.name == "RightBound") {
             this.transform.position = new Vector3(this.transform.position.x - 10, this.transform.position.y, this.transform.position.z);
         }
 
-        if(collision.gameObject.name == "LeftBound") {
+        if (collision.gameObject.name == "LeftBound") {
             this.transform.position = new Vector3(this.transform.position.x + 10, this.transform.position.y, this.transform.position.z);
         }
 
-        if(collision.gameObject.name == "DeathZone") {
+        if (collision.gameObject.name == "Main Camera") {
             Debug.Log("Game Over");
             this.gameObject.SetActive(false);
         }
