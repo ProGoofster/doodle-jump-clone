@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour {
     private Rigidbody2D rb;
     private float moveX;
     public float jumpForce = 9f;
-    public float springForce = 20f;
+    public float springForce = 15f;
 
 
     void Awake() {
@@ -29,9 +29,12 @@ public class PlayerController : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D collision) {
         Vector2 velocity = rb.linearVelocity;
-
-        if (collision.gameObject.tag == "Platform") velocity.y = jumpForce;
-        if (collision.gameObject.tag == "Spring") velocity.y = springForce;
+        // check if player is coming in from the top
+        // reversed comparison because we're checking from the player
+        if (collision.relativeVelocity.y >= 0) {
+            if (collision.gameObject.tag == "Platform") velocity.y = jumpForce;
+            if (collision.gameObject.tag == "Spring") velocity.y = springForce;
+        }
 
         rb.linearVelocity = velocity;
     }
