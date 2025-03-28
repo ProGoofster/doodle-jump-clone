@@ -12,4 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f7557832c34c248cb34e301514dcec0, type: 3}
   m_Name: CourseSegments
   m_EditorClassIdentifier: 
-  courses: []
+  easyCourses:
+  - {fileID: 6292242911837187363, guid: 45811fad3bb0a6171a4b48ecbf06e9e9, type: 3}
+  mediumCourses:
+  - {fileID: 6292242911837187363, guid: 45811fad3bb0a6171a4b48ecbf06e9e9, type: 3}
+  hardCourses:
+  - {fileID: 8382892286918587675, guid: 8dfc9ebe367dc7fffa2310a1894dd525, type: 3}
+  rareCourses:
+  - {fileID: 8382892286918587675, guid: 8dfc9ebe367dc7fffa2310a1894dd525, type: 3}
